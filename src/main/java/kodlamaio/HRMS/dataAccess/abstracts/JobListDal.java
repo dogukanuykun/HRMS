@@ -11,11 +11,11 @@ import kodlamaio.HRMS.entities.dtos.JobForListDto;
 
 public interface JobListDal extends JpaRepository<Job, Integer> {
     
-    @Query("select new com.kodlamaio.HRMS.entities.dtos.JobForListDto(j.id,j.employer.companyName,j.jobPosition.name,j.numberOfOpenPositions,j.releaseDate,j.deadline) from JobPosting as j where j.active=:isActive")
+    @Query("select new com.kodlamaio.HRMS.entities.dtos.JobForListDto(j.id,j.company.companyName,j.job.name,j.NumberOfPosition,j.releaseDate,j.deadline) from Job as j where j.active=:isActive")
     List<JobForListDto> getByActiveSortedByReleaseDate(@Param("isActive") boolean isActive);
-    @Query("select new com.kodlamaio.HRMS.entities.dtos.JobForListDto(j.id,j.employer.companyName,j.jobPosition.name,j.numberOfOpenPositions,j.releaseDate,j.deadline) from JobPosting as j where j.active=:isActive and j.employer.id=:employerId")
+    @Query("select new com.kodlamaio.HRMS.entities.dtos.JobForListDto(j.id,j.employer.companyName,j.jobPosition.name,j.NumberOfPosition,j.releaseDate,j.deadline) from Job as j where j.active=:isActive and j.company.id=:companyId")
     List<JobForListDto> getByActiveAndCompany(@Param("isActive") boolean isActive,@Param("employerId") int companyId);
-    @Query(value = "select new com.kodlamaio.HRMS.entities.dtos.JobForListDto(j.id,j.employer.companyName,j.jobPosition.name,j.numberOfOpenPositions,j.releaseDate,j.deadline) from JobPosting as j where j.active=:isActive")
+    @Query(value = "select new com.kodlamaio.HRMS.entities.dtos.JobForListDto(j.id,j.company.companyName,j.jobPosition.name,j.NumberOfPosition,j.releaseDate,j.deadline) from Job as j where j.active=:isActive")
     List<JobForListDto> getByActive(@Param("isActive") boolean isActive);
 
 }
