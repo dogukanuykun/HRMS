@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import kodlamaio.HRMS.business.abstracts.JobService;
 import kodlamaio.HRMS.core.DataResult;
-import kodlamaio.HRMS.core.ErrorResult;
 import kodlamaio.HRMS.core.Result;
 import kodlamaio.HRMS.core.SuccessDataResult;
 import kodlamaio.HRMS.core.SuccessResult;
@@ -83,33 +82,8 @@ public class JobManager implements JobService {
 		
 	}
 
-	@Override
-	public Result disactiveJob(Job job) {
-		if(job.isActive()) {
-			job.setActive(false);
-			return new SuccessResult("İş güncellendi"); 
-		}else {
-			return new ErrorResult("İş zaten pasif durumda!");
-		}
-		
-	}
-
-	@Override
-	public Result activeJob(Job job) {
-		if(job.isActive()) {
-			return new ErrorResult("İş zaten aktif durumda!");
-		}else {
-			job.setActive(true);
-			return new SuccessResult("İş güncellendi");
-		}
-	}
 
 
-
-
-
-
-	
 	
 	
 }

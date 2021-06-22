@@ -42,17 +42,6 @@ public class JobController {
     	
     }
 	
-    @PutMapping("/get/activeJob")
-    public Result activeJob(@RequestParam Job job) {
-    	return this.jobService.activeJob(job);
-    	
-    }
-    
-    @PutMapping("/get/disactiveJob")
-    public Result disactiveJob(@RequestParam Job job) {
-    	return this.jobService.disactiveJob(job);
-    	
-    }
     
     @GetMapping("/get/getactivejobs")
 	public DataResult<List<Job>> getByIsActive() {

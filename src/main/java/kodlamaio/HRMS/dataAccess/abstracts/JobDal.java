@@ -11,7 +11,7 @@ public interface JobDal extends JpaRepository<Job, Integer> {
 	List<Job> getByCompanyId(int id);
 	List<Job> getByIsActive();
 	List<Job> getByCompanyIdAndIsActive(int id);
-	
+	List<Job> findByTitle(String title);
 
 	
 }

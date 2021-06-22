@@ -13,12 +13,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="Companies")
-public class Company extends User {
+public class Company {
+	
 	
 	@Id
 	@GeneratedValue
 	@Column(name="company_id")
-	private int id;
+	private int companyId;
 	
 	@Column(name="CompanyName")
 	private String companyName;
@@ -30,6 +31,7 @@ public class Company extends User {
 	private String phoneNumber;
 	
 	@OneToMany(mappedBy = "Company")
+	@Column(name="jobs")
 	private List<Job> jobs;
 	
 	

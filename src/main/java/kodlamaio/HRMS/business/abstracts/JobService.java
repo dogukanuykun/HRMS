@@ -18,8 +18,6 @@ public interface JobService {
     DataResult<List<Job>> getByCompanyId(int id);
     DataResult<List<Job>> getAllSorted();
     DataResult<List<Job>> getByIsActive();
-    Result disactiveJob(Job job);
-    Result activeJob(Job job);
     DataResult<List<Job>> getByCompanyIdAndIsActive(int id);
     
 	

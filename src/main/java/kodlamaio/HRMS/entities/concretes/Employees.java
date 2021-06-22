@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="Employees")
-public class Employees extends User {
+public class Employees{
 
 	@Id
 	@GeneratedValue
